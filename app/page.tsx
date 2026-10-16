@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { 
   Download, 
   ArrowUpRight, 
@@ -73,7 +73,36 @@ const skills = [
 ];
 
 export default function Home() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  // Close menu on scroll or outside click
+  useEffect(() => {
+    const handleScroll = () => {
+      if (menuOpen) setMenuOpen(false);
+    };
+
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(target) &&
+        !target.closest('button[aria-label="Toggle menu"]')
+      ) {
+        setMenuOpen(false);
+      }
+    };
+
+    if (menuOpen) {
+      window.addEventListener("scroll", handleScroll, { passive: true });
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuOpen]);
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white flex flex-col font-sans selection:bg-blue-600 selection:text-white overflow-x-hidden">
@@ -106,42 +135,45 @@ export default function Home() {
             <Download size={14} className="sm:w-4 sm:h-4" />
           </a>
 
-          {/* Mobile Menu Toggle (HAMBURGER — this was missing!) */}
+          {/* Mobile Menu Toggle */}
           <button 
             className="md:hidden p-2 text-gray-300 hover:text-white transition-colors"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+            {menuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
+        </div>
+
+        {/* Mobile Dropdown Menu */}
+        {menuOpen && (
+          <div 
+            ref={menuRef}
+            className="md:hidden border-t border-gray-800/60 bg-[#0a0a0a] px-4 py-4"
+          >
+            <nav className="flex flex-col gap-4 text-sm text-gray-300">
+              <a href="#" onClick={() => setMenuOpen(false)} className="hover:text-white transition-colors">Home</a>
+              <a href="#about" onClick={() => setMenuOpen(false)} className="hover:text-white transition-colors">About</a>
+              <a href="#skills" onClick={() => setMenuOpen(false)} className="hover:text-white transition-colors">Skills</a>
+              <a href="#projects" onClick={() => setMenuOpen(false)} className="hover:text-white transition-colors">Projects</a>
+              <a href="#experience" onClick={() => setMenuOpen(false)} className="hover:text-white transition-colors">Experience</a>
+              <a href="#contact" onClick={() => setMenuOpen(false)} className="hover:text-white transition-colors">Contact</a>
+
+              {/* Mobile Resume Button */}
+              <a 
+                href="/CHANYAHOR_FullStack_Developer_Resume.pdf" 
+                download="CHANYAHOR_FullStack_Developer_Resume.pdf"
+                className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-2.5 rounded-md mt-2"
+              >
+                Download Resume
+                <Download size={16} />
+              </a>
+            </nav>
           </div>
-
-          {/* Mobile Dropdown Menu */}
-          {mobileMenuOpen && (
-            <div className="md:hidden border-t border-gray-800/60 bg-[#0a0a0a] px-4 py-4">
-              <nav className="flex flex-col gap-4 text-sm text-gray-300">
-                <a href="#" onClick={() => setMobileMenuOpen(false)} className="hover:text-white transition-colors">Home</a>
-                <a href="#about" onClick={() => setMobileMenuOpen(false)} className="hover:text-white transition-colors">About</a>
-                <a href="#skills" onClick={() => setMobileMenuOpen(false)} className="hover:text-white transition-colors">Skills</a>
-                <a href="#projects" onClick={() => setMobileMenuOpen(false)} className="hover:text-white transition-colors">Projects</a>
-                <a href="#experience" onClick={() => setMobileMenuOpen(false)} className="hover:text-white transition-colors">Experience</a>
-                <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="hover:text-white transition-colors">Contact</a>
-
-                {/* Mobile Resume Button — lives INSIDE the dropdown */}
-                <a 
-                  href="/CHANYAHOR_FullStack_Developer_Resume.pdf" 
-                  download="CHANYAHOR_FullStack_Developer_Resume.pdf"
-                  className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-4 py-2.5 rounded-md mt-2"
-                >
-                  Download Resume
-                  <Download size={16} />
-                </a>
-              </nav>
-            </div>
-          )}
+        )}
       </header>
 
-      <main className="flex-1 w-full">
+      <main className="flex-1 w-full pt-16 sm:pt-20">
         
         {/* ================= HERO SECTION ================= */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20 lg:py-32 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
@@ -158,16 +190,14 @@ export default function Home() {
               I'm Chan, a full-stack developer passionate about building responsive interfaces, practical web applications, and reliable backend systems. I enjoy turning ideas into functional products and continuously improving my development skills.
             </p>
             <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
-              <button className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm sm:text-base font-medium px-5 sm:px-6 py-2.5 sm:py-3 rounded-md transition-colors">
-                <a href="#projects" className="hover:text-white transition-colors">
-                View Projects</a>
+              <a href="#projects" className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm sm:text-base font-medium px-5 sm:px-6 py-2.5 sm:py-3 rounded-md transition-colors">
+                View Projects
                 <ArrowDown size={16} className="sm:w-[18px] sm:h-[18px]" />
-              </button>
-              <button className="flex items-center gap-2 border border-gray-700 hover:border-gray-500 hover:bg-gray-900 text-white text-sm sm:text-base font-medium px-5 sm:px-6 py-2.5 sm:py-3 rounded-md transition-colors">
-                <a href="#contact" className="hover:text-white transition-colors">
-                  Contact Me</a>
+              </a>
+              <a href="#contact" className="flex items-center gap-2 border border-gray-700 hover:border-gray-500 hover:bg-gray-900 text-white text-sm sm:text-base font-medium px-5 sm:px-6 py-2.5 sm:py-3 rounded-md transition-colors">
+                Contact Me
                 <ArrowUpRight size={16} className="sm:w-[18px] sm:h-[18px]" />
-              </button>
+              </a>
             </div>
             <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-400">
               <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
@@ -392,10 +422,10 @@ export default function Home() {
               <p className="text-gray-400 text-sm sm:text-lg mb-6 sm:mb-8 max-w-xl">
                 Hiring a Full-Stack Developer? I'd love to connect about web development opportunities.
               </p>
-              <button className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm sm:text-base font-medium px-5 sm:px-6 py-2.5 sm:py-3 rounded-md transition-colors mb-5 sm:mb-6">
+              <a href="mailto:ashimrayahor@gmail.com" className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm sm:text-base font-medium px-5 sm:px-6 py-2.5 sm:py-3 rounded-md transition-colors mb-5 sm:mb-6">
                 Contact Me
                 <ArrowUpRight size={16} className="sm:w-[18px] sm:h-[18px]" />
-              </button>
+              </a>
               <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-400">
                 <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
                 Open to full-stack / web opportunities
@@ -423,7 +453,7 @@ export default function Home() {
                   </div>
                   <div className="min-w-0">
                     <h4 className="text-sm font-medium">GitHub</h4>
-                    <p className="text-xs text-gray-500 truncate">Chan420-cyber(Chan)</p>
+                    <p className="text-xs text-gray-500 truncate">Chan420-cyber (Chan)</p>
                   </div>
                 </div>
                 <ArrowUpRight size={16} className="text-gray-500 group-hover:text-white transition-colors shrink-0" />
@@ -436,7 +466,7 @@ export default function Home() {
                   </div>
                   <div className="min-w-0">
                     <h4 className="text-sm font-medium">LinkedIn</h4>
-                    <p className="text-xs text-gray-500 truncate">www.linkedin.com/in/ashimray</p>
+                    <p className="text-xs text-gray-500 truncate">linkedin.com/in/ashimray</p>
                   </div>
                 </div>
                 <ArrowUpRight size={16} className="text-gray-500 group-hover:text-white transition-colors shrink-0" />
