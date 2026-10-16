@@ -403,7 +403,7 @@ export default function Home() {
             </div>
 
             <div className="lg:col-span-5 flex flex-col justify-center gap-3 sm:gap-4">
-              <a href="mailto:hello@example.com" className="flex items-center justify-between bg-[#111111] border border-gray-800 hover:border-gray-600 rounded-xl p-3.5 sm:p-4 transition-colors group">
+              <a href="mailto:ashimrayahor@gmail.com" className="flex items-center justify-between bg-[#111111] border border-gray-800 hover:border-gray-600 rounded-xl p-3.5 sm:p-4 transition-colors group">
                 <div className="flex items-center gap-3 sm:gap-4 min-w-0">
                   <div className="bg-gray-900 p-2 rounded-lg text-gray-400 group-hover:text-blue-500 transition-colors shrink-0">
                     <Mail size={18} />
@@ -416,7 +416,7 @@ export default function Home() {
                 <ArrowUpRight size={16} className="text-gray-500 group-hover:text-white transition-colors shrink-0" />
               </a>
               
-              <a href="https://github.com" target="_blank" rel="noreferrer" className="flex items-center justify-between bg-[#111111] border border-gray-800 hover:border-gray-600 rounded-xl p-3.5 sm:p-4 transition-colors group">
+              <a href="https://github.com/Chan420-cyber" target="_blank" rel="noreferrer" className="flex items-center justify-between bg-[#111111] border border-gray-800 hover:border-gray-600 rounded-xl p-3.5 sm:p-4 transition-colors group">
                 <div className="flex items-center gap-3 sm:gap-4 min-w-0">
                   <div className="bg-gray-900 p-2 rounded-lg text-gray-400 group-hover:text-blue-500 transition-colors shrink-0">
                     <Terminal size={18} />
@@ -429,7 +429,7 @@ export default function Home() {
                 <ArrowUpRight size={16} className="text-gray-500 group-hover:text-white transition-colors shrink-0" />
               </a>
 
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="flex items-center justify-between bg-[#111111] border border-gray-800 hover:border-gray-600 rounded-xl p-3.5 sm:p-4 transition-colors group">
+              <a href="https://linkedin.com/in/ashimray" target="_blank" rel="noreferrer" className="flex items-center justify-between bg-[#111111] border border-gray-800 hover:border-gray-600 rounded-xl p-3.5 sm:p-4 transition-colors group">
                 <div className="flex items-center gap-3 sm:gap-4 min-w-0">
                   <div className="bg-gray-900 p-2 rounded-lg text-gray-400 group-hover:text-blue-500 transition-colors shrink-0">
                     <User size={18} />
