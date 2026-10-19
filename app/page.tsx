@@ -27,7 +27,7 @@ const projects = [
   {
     title: "Bookstore Management System",
     description: "An inventory-to-order interface concept for a more organized bookstore workflow.",
-    image: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=1000&auto=format&fit=crop",
+    image: "/bookstore.png", // Update with your actual image path
     tech: ["React", "Laravel", "MySQL"],
   },
   {
@@ -35,7 +35,7 @@ const projects = [
     description: "A focused library interface concept for discovering books and managing circulation.",
     image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=1000&auto=format&fit=crop",
     tech: ["PHP", "JavaScript", "MySQL"],
-  },
+  }, 
   {
     title: "AgriChains",
     description: "A blockchain project exploring a cleaner connection between agriculture and traceability.",
@@ -119,9 +119,9 @@ export default function Home() {
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-sm text-gray-400">
             <a href="#" className="hover:text-white transition-colors">Home</a>
+            <a href="#projects" className="hover:text-white transition-colors">Projects</a>
             <a href="#about" className="hover:text-white transition-colors">About</a>
             <a href="#skills" className="hover:text-white transition-colors">Skills</a>
-            <a href="#projects" className="hover:text-white transition-colors">Projects</a>
             <a href="#experience" className="hover:text-white transition-colors">Experience</a>
             <a href="#contact" className="hover:text-white transition-colors">Contact</a>
           </nav>
@@ -155,9 +155,9 @@ export default function Home() {
           >
             <nav className="flex flex-col gap-4 text-sm text-gray-300">
               <a href="#" onClick={() => setMenuOpen(false)} className="hover:text-white transition-colors">Home</a>
+              <a href="#projects" onClick={() => setMenuOpen(false)} className="hover:text-white transition-colors">Projects</a>
               <a href="#about" onClick={() => setMenuOpen(false)} className="hover:text-white transition-colors">About</a>
               <a href="#skills" onClick={() => setMenuOpen(false)} className="hover:text-white transition-colors">Skills</a>
-              <a href="#projects" onClick={() => setMenuOpen(false)} className="hover:text-white transition-colors">Projects</a>
               <a href="#experience" onClick={() => setMenuOpen(false)} className="hover:text-white transition-colors">Experience</a>
               <a href="#contact" onClick={() => setMenuOpen(false)} className="hover:text-white transition-colors">Contact</a>
 
