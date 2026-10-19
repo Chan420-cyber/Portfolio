@@ -12,7 +12,7 @@ const images = [
     caption: "Official certificate for the Regen Manipur Hackathon 2024."
   },
   {
-    src: "/team-photo.jpg",
+    src: "/team-photo.JPG",
     alt: "Team receiving certificate at Regen Manipur Hackathon 2024",
     caption: "Our team receiving the award at the Regen Manipur Hackathon 2024."
   }
@@ -54,7 +54,7 @@ export default function RegenManipur2024() {
             Regen Manipur Hackathon <span className="text-yellow-500">2024</span>
           </h1>
           <p className="text-gray-400 text-base sm:text-lg max-w-2xl">
-            Recognized as a <strong>Hackathon 1st runners up</strong> for building <strong>AgriChains</strong>, a blockchain-based agricultural traceability solution.
+            Recognized as a <strong>Hackathon 1st Runner-Up</strong> for building <strong>AgriChains</strong>, a blockchain-based agricultural traceability solution.
           </p>
         </div>
 

@@ -401,7 +401,7 @@ export default function Home() {
                     Regen Manipur Hackathon 2024
                   </h4>
                   <p className="text-xs text-gray-400 truncate">
-                    Hackathon Finalist · AgriChains
+                    1st Runner-Up · AgriChains
                   </p>
                 </div>
                 <ArrowUpRight size={16} className="text-gray-500 group-hover:text-white transition-colors shrink-0 mt-1" />
