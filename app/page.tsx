@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { 
   Download, 
@@ -19,6 +20,7 @@ import {
   Menu,
   X
 } from "lucide-react";
+
 
 // Project data array
 const projects = [
@@ -63,10 +65,10 @@ const skills = [
   {
     category: "Databases",
     icon: <Database size={18} />,
-    items: ["MySQL"]
+    items: ["MySQL", "MongoDB"]
   },
   {
-    category: "Version Control",
+    category: "Developer Tools",
     icon: <GitBranch size={18} />,
     items: ["Git", "GitHub"]
   }
@@ -180,7 +182,7 @@ export default function Home() {
           <div className="lg:col-span-7 flex flex-col justify-center">
             <div className="flex items-center gap-3 mb-5 sm:mb-6">
               <span className="w-6 sm:w-8 h-[1px] bg-blue-500"></span>
-              <span className="text-xs sm:text-sm text-gray-400 tracking-wide uppercase">BCA Honor Graduate · Full-Stack Developer</span>
+              <span className="text-xs sm:text-sm text-gray-400 tracking-wide uppercase">Junior Full-Stack Developer</span>
             </div>
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold leading-[1.15] sm:leading-[1.1] tracking-tight mb-5 sm:mb-6">
               Building Web Experiences <br className="hidden sm:inline" />
@@ -295,7 +297,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
             <div className="lg:col-span-7 flex flex-col gap-4 sm:gap-6 text-sm sm:text-base text-gray-400 leading-relaxed">
               <p>
-                I'm Chan, a BCA Honor graduate from NIELIT, Manipur, India, passionate about full-stack development, problem-solving, and building practical web applications.
+                I'm Chan, a Bachelor of Computer Applications (BCA) Honor graduate from NIELIT, Manipur, India, passionate about full-stack development, problem-solving, and building practical web applications.
               </p>
               <p>
                 From responsive interfaces to reliable backend systems, I enjoy turning ideas into functional products. I'm seeking a Full-Stack Developer role where I can contribute, learn, and keep improving.
@@ -383,25 +385,47 @@ export default function Home() {
               </div>
             </div>
 
+            {/* Achievements Column */}
             <div className="lg:col-span-5 flex flex-col gap-4">
-              <div className="bg-[#111111] border border-gray-800 rounded-xl p-4 sm:p-5 flex items-start gap-4">
-                <div className="bg-yellow-500/10 p-2 rounded-lg text-yellow-500 mt-1 shrink-0">
+              
+              {/* Hackathon Card (Featured) */}
+              <Link 
+                href="/achievements/regen-manipur-2024"
+                className="bg-[#111111] border border-gray-800 rounded-xl p-4 sm:p-5 flex items-start gap-4 hover:border-gray-600 transition-colors group focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-[#0a0a0a]"
+              >
+                <div className="bg-yellow-500/10 p-2 rounded-lg text-yellow-500 mt-1 shrink-0 group-hover:bg-yellow-500/20 transition-colors">
                   <Award size={18} />
                 </div>
-                <div>
-                  <h4 className="font-semibold text-sm mb-1">Hackathon recognition</h4>
-                  <p className="text-xs text-gray-400">Recognition title and details to add</p>
+                <div className="flex-1 min-w-0">
+                  <h4 className="font-semibold text-sm mb-1 group-hover:text-blue-400 transition-colors">
+                    Regen Manipur Hackathon 2024
+                  </h4>
+                  <p className="text-xs text-gray-400 truncate">
+                    Hackathon Finalist · AgriChains
+                  </p>
                 </div>
-              </div>
-              <div className="bg-[#111111] border border-gray-800 rounded-xl p-4 sm:p-5 flex items-start gap-4">
-                <div className="bg-purple-500/10 p-2 rounded-lg text-purple-500 mt-1 shrink-0">
+                <ArrowUpRight size={16} className="text-gray-500 group-hover:text-white transition-colors shrink-0 mt-1" />
+              </Link>
+
+              {/* Typing Competition Card */}
+              <Link 
+                href="/achievements/typing-competition"
+                className="bg-[#111111] border border-gray-800 rounded-xl p-4 sm:p-5 flex items-start gap-4 hover:border-gray-600 transition-colors group focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-[#0a0a0a]"
+              >
+                <div className="bg-purple-500/10 p-2 rounded-lg text-purple-500 mt-1 shrink-0 group-hover:bg-purple-500/20 transition-colors">
                   <Trophy size={18} />
                 </div>
-                <div>
-                  <h4 className="font-semibold text-sm mb-1">First position: Typing competition</h4>
-                  <p className="text-xs text-gray-400">First place in a typing competition</p>
+                <div className="flex-1 min-w-0">
+                  <h4 className="font-semibold text-sm mb-1 group-hover:text-blue-400 transition-colors">
+                    First Position: Typing Competition
+                  </h4>
+                  <p className="text-xs text-gray-400 truncate">
+                    1st Place · Speed & Accuracy
+                  </p>
                 </div>
-              </div>
+                <ArrowUpRight size={16} className="text-gray-500 group-hover:text-white transition-colors shrink-0 mt-1" />
+              </Link>
+              
             </div>
           </div>
         </section>
@@ -453,7 +477,7 @@ export default function Home() {
                   </div>
                   <div className="min-w-0">
                     <h4 className="text-sm font-medium">GitHub</h4>
-                    <p className="text-xs text-gray-500 truncate">Chan420-cyber (Chan)</p>
+                    <p className="text-xs text-gray-500 truncate">Chan420-cyber</p>
                   </div>
                 </div>
                 <ArrowUpRight size={16} className="text-gray-500 group-hover:text-white transition-colors shrink-0" />
@@ -466,7 +490,7 @@ export default function Home() {
                   </div>
                   <div className="min-w-0">
                     <h4 className="text-sm font-medium">LinkedIn</h4>
-                    <p className="text-xs text-gray-500 truncate">linkedin.com/in/ashimray</p>
+                    <p className="text-xs text-gray-500 truncate">ashimray</p>
                   </div>
                 </div>
                 <ArrowUpRight size={16} className="text-gray-500 group-hover:text-white transition-colors shrink-0" />
@@ -493,7 +517,7 @@ export default function Home() {
             </div>
           </div>
           <div className="flex flex-col md:flex-row items-center justify-between text-xs text-gray-600 gap-2 sm:gap-4 text-center md:text-left">
-            <p>© 2024 Chan. All rights reserved.</p>
+            <p>© 2026 Chan. All rights reserved.</p>
             <p>Contact · GitHub · LinkedIn</p>
           </div>
         </div>
