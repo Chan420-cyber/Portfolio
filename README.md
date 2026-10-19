@@ -2,7 +2,7 @@
 
 A modern, responsive, and accessible developer portfolio built to showcase my skills, projects, and achievements as a Junior Full-Stack Developer.
 
-🔗 **Live Demo:** [https://your-portfolio-url.vercel.app](https://your-portfolio-url.vercel.app) 
+🔗 **Live Demo:** [[https://portfolio-sepia-zeta-hkj7yl57oq.vercel.app?\_vercel_share=A5R403qTr75veFh8wOSd4Xj2rctaXM8M](https://portfolio-sepia-zeta-hkj7yl57oq.vercel.app?_vercel_share=A5R403qTr75veFh8wOSd4Xj2rctaXM8M)]([https://portfolio-sepia-zeta-hkj7yl57oq.vercel.app?\_vercel_share=A5R403qTr75veFh8wOSd4Xj2rctaXM8M](https://portfolio-sepia-zeta-hkj7yl57oq.vercel.app?_vercel_share=A5R403qTr75veFh8wOSd4Xj2rctaXM8M)) 
 
 ![Portfolio Preview](./public/portfolio-preview.png)
 
