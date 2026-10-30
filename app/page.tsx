@@ -47,6 +47,7 @@ const projects = [
     description: "A weather interface concept that puts current conditions and the daily outlook first.",
     image: "/weatherSnap.png",
     tech: ["HTML", "CSS", "JavaScript"],
+    liveDemoURL: "https://chan420-cyber.github.io/WeatherSnap",
     githubURL: "https://chan420-cyber.github.io/WeatherSnap",
   }
 ];
@@ -270,11 +271,12 @@ export default function Home() {
                     {project.description}
                   </p>
                   <div className="flex items-center justify-between pt-3 sm:pt-4 border-t border-gray-800/60">
-                    <a href={project.githubURL} className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-white transition-colors">
+                    <a href={project.githubURL || 'https://chan420-cyber.github.io/WeatherSnap/'} className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-white transition-colors" target="_blank" rel="noreferrer">
+                    
                       <Terminal size={14} />
                       GitHub
                     </a>
-                    <a href={project.liveDemoURL} className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-white transition-colors">
+                    <a href={project.liveDemoURL || 'https://chan420-cyber.github.io/WeatherSnap/'} className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-white transition-colors" target="_blank" rel="noreferrer">
                       Live demo
                       <ExternalLink size={14} />
                     </a>
