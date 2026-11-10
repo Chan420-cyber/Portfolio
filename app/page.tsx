@@ -27,7 +27,9 @@ const projects = [
   {
     title: "Bookstore Management System",
     description: "An inventory-to-order interface concept for a more organized bookstore workflow.",
-    image: "/bookstore.png", // Update with your actual image path
+    image: "/bookstore.png", 
+    liveDemoURL: "https://book-store-management-dyp0misik-ashimrayahor-8652s-projects.vercel.app",
+    githubURL: "https://github.com/Chan420-cyber/BookStoreManagement", 
     tech: ["React", "Laravel", "MySQL"],
   },
   {
