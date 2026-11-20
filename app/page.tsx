@@ -39,10 +39,12 @@ const projects = [
     tech: ["PHP", "JavaScript", "MySQL"],
   }, 
   {
-    title: "AgriChains",
-    description: "A blockchain project exploring a cleaner connection between agriculture and traceability.",
-    image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=1000&auto=format&fit=crop",
+    title: "SLMS",
+    description: "A full-stack Study Lounge Management System featuring real-time seat reservations, user authentication, and automated slot tracking through a responsive React interface and REST API.",
+    image: "/slms.png",
     tech: ["React", "Node.js", "MongoDB"],
+    liveDemoURL: "https://study-lounge-management.vercel.app/",
+    githubURL: "https://github.com/Chan420-cyber/slms",
   },
   {
     title: "WeatherSnap",
@@ -81,6 +83,7 @@ const skills = [
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const [showCert, setShowCert] = useState(false);
 
   // Close menu on scroll or outside click
   useEffect(() => {
@@ -375,7 +378,40 @@ export default function Home() {
                       <p className="text-xs sm:text-sm text-gray-400">Full-Stack / Web Development Intern</p>
                     </div>
                   </div>
-                  <span className="text-xs text-gray-500 border border-gray-800 px-2 py-1 rounded-sm self-start">Internship</span>
+                  
+                  {/* Certificate Stamp & Clickable Image */}
+                <div className="relative self-start">
+                  {/* The Stamp (Thumbnail) */}
+                  <img 
+                    src="/Internship.jpeg" 
+                    alt="Internship Certificate" 
+                    className="h-10 w-10 object-cover border-2 border-gray-600 rounded-sm cursor-pointer hover:opacity-80 transition"
+                    onClick={() => setShowCert(true)}
+                  />
+
+                  {/* The Lightbox Modal (Only shows when showCert is true) */}
+                  {showCert && (
+                    <div 
+                      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 cursor-zoom-out"
+                      onClick={() => setShowCert(false)}
+                    >
+                      <div className="relative max-w-4xl w-full">
+                        <button 
+                          className="absolute -top-12 right-0 text-white hover:text-gray-300 text-xl font-bold"
+                          onClick={() => setShowCert(false)}
+                        >
+                          Close X
+                        </button>
+                        <img 
+                          src="/Internship.jpeg" 
+                          alt="Internship Certificate Full" 
+                          className="w-full h-auto rounded-lg shadow-2xl border border-gray-700"
+                          onClick={(e) => e.stopPropagation()} // Prevents closing when clicking the image itself
+                        />
+                      </div>
+                    </div>
+                  )}
+                </div>
                 </div>
                 <p className="text-gray-400 text-xs sm:text-sm mb-4 sm:mb-6 leading-relaxed">
                   Hands-on web development experience working with PHP and Laravel, with a focus on routing and controllers.
